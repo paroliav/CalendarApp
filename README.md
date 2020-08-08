@@ -27,6 +27,28 @@ Change the Schema to ``CalendarAppUiTests``
 
 And change the build target to tests
 
+## Project Structure
+
+The test case is written as Feature test using Gherkin language support for XCtest provided by net-a-porter
+
+The test case and StepDefinitions are all located under the ```CalendarAppUITests``` folder
+
+### Feature 
+
+CalenderAppUITests.swift
+
+### StepDefinitions
+
+CalendarAppStepDefinitions.swift
+
+### Helpers
+
+All the helper functions are located under the ```Helpeers``` group
+
+### Page object
+
+All the ideentifiers and page related operations are under ```Components``` group
+
 ## Please note that the simulator's region setting should be United States 
 
 I have intentionally avoided adding a Team to the project to avoid adding memebers to the team to run the project
