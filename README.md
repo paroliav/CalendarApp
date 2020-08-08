@@ -35,11 +35,12 @@ I have intentionally avoided adding a Team to the project to avoid adding memebe
 
 To generate report run with XCpretty. Also adds screenshots to the output folder.
 
-``` xcodebuild -workspace CalendarApp.xcworkspace \
+``` 
+ xcodebuild -workspace CalendarApp.xcworkspace \
 -scheme "CalendarAppUITests" \
 -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=13.6' \
 -derivedDataPath './output' \
-test | | xcpretty 
+test | xcpretty 
 ```
 
 
