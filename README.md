@@ -43,7 +43,7 @@ CalendarAppStepDefinitions.swift
 
 ### Helpers
 
-All the helper functions are located under the ```Helpeers``` group
+All the helper functions are located under the ```Helpers``` group
 
 ### Page object
 
