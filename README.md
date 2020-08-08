@@ -30,3 +30,16 @@ And change the build target to tests
 ## Please note that the simulator's region setting should be United States 
 
 I have intentionally avoided adding a Team to the project to avoid adding memebers to the team to run the project
+
+## XCpretty
+
+To generate report run with XCpretty. Also adds screenshots to the output folder.
+
+``` xcodebuild -workspace CalendarApp.xcworkspace \
+-scheme "CalendarAppUITests" \
+-destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=13.6' \
+-derivedDataPath './output' \
+test | | xcpretty 
+```
+
+
