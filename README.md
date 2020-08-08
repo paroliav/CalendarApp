@@ -15,7 +15,7 @@ In order to run you need cocoapods installed on the machine
 ```bash
 gem install cocoapods
 ```
-Install thee pod by running
+Install the pod by running
 
 ```bash
 pod install
