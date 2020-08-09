@@ -5,7 +5,7 @@
 - This project aims to open the calendar app on iOS simulator ```(Language & Region -> United States)```
 - Add an event after checking the date is not a weekend or a public holiday
 - List of public holidays is provided as a CSV file (PublicHolidays2020.csv)
-- Selcts a random date from the dates avaialble in current month
+- Selcts a random date from the dates avaialble in current month.
 Collects all the dates from current month filters out the weekends and public holidays
 Then selects a random date from the list of available dates
 - Sets an event end time based on the duration and time unit (minutes or hours) provided
