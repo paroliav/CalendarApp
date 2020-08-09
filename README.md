@@ -40,17 +40,81 @@ The test case and StepDefinitions are all located under the ```CalendarAppUITest
 
 CalenderAppUITests.swift
 
+```bash
+func testCalendarApp() {
+    Given("I have launched the Calendar app")
+    When("I want to create an event with title \"Introduction\"")
+    And("It is not a weekend or a public holiday and starts at 6:05 PM")
+    And("I set the duration as \"30 minutes\"")
+    And("I save the event")
+    Then("I should be able to find it on the date")
+
+}
+```
+
 ### StepDefinitions
 
 CalendarAppStepDefinitions.swift
+
+```bash
+step("It is not a weekend or a public holiday and starts at (.+) (AM|PM)") { (startTime: String, timeOfDay: String) in
+    let startDate: Date = getRandomValidDate()
+    eventDate = startDate
+    eventTime = startTime
+    
+    fillStartDateTime(startDate: startDate, startTime: startTime, timeOfDay: timeOfDay)
+}
+```
 
 ### Helpers
 
 All the helper functions are located under the ```Helpers``` group
 
+```DateHelper.swift```
+
+```bash
+func getRandomValidDate() -> Date {
+    var calendar = NSCalendar.current
+    calendar.timeZone = .current
+      var dateFrom = Date().startOfMonth()
+      let dateTo = Date().endOfMonth()
+      var availabledates : [Date] = []
+      
+      while dateFrom <= dateTo {
+          if !calendar.isDateInWeekend(dateFrom) && !isPublicHoliday(date: dateFrom){
+              availabledates.append(dateFrom)
+          }
+          dateFrom = Calendar.current.date(byAdding: .day, value: 1, to: dateFrom)!
+      }
+      
+      let randomInt = Int.random(in: 0..<availabledates.count)
+      return availabledates[randomInt]
+}
+```
+
+
 ### Page object
 
 All the ideentifiers and page related operations are under ```Components``` group
+
+```EventForm.swift```
+
+```bash
+func fillStartDateTime(startDate : Date, startTime : String, timeOfDay : String) {
+    let predicate = NSPredicate(format: "label CONTAINS[c] %@", lbStart)
+    let starts = calendarApp.cells.containing(predicate).element
+    starts.tap()
+    
+    let hour_minutes = startTime.split(separator: ":")
+    setDate(eventDate: startDate)
+    setHour(hour: String(hour_minutes[0]))
+    setMinutes(minute: String(hour_minutes[1]))
+    setAMPM(timeOfDay: timeOfDay)
+    eventAMPM = timeOfDay
+    
+    starts.tap()
+}
+```
 
 ## Please note that the simulator's region setting should be United States 
 
