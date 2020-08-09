@@ -4,7 +4,7 @@
 
 - This project aims to open the calendar app on iOS simulator ```(Language & Region -> United States)```
 - Add an event after checking the date is not a weekend or a public holiday
-- List of public holidays is provided as a CSV file (PublicHolidays2020.csv)
+- List of public holidays is provided as a CSV file ```(PublicHolidays2020.csv)```
 - Selcts a random date from the dates avaialble in current month.
 Collects all the dates from current month filters out the weekends and public holidays
 Then selects a random date from the list of available dates
@@ -38,7 +38,7 @@ The test case and StepDefinitions are all located under the ```CalendarAppUITest
 
 ### Feature 
 
-CalenderAppUITests.swift
+```CalenderAppUITests.swift```
 
 ```bash
 func testCalendarApp() {
@@ -54,7 +54,7 @@ func testCalendarApp() {
 
 ### StepDefinitions
 
-CalendarAppStepDefinitions.swift
+```CalendarAppStepDefinitions.swift```
 
 ```bash
 step("It is not a weekend or a public holiday and starts at (.+) (AM|PM)") { (startTime: String, timeOfDay: String) in
@@ -124,7 +124,7 @@ I have intentionally avoided adding a Team to the project to avoid adding memebe
 
 To generate report run with XCpretty. Also adds screenshots to the output folder.
 
-``` 
+```bash
  xcodebuild -workspace CalendarApp.xcworkspace \
 -scheme "CalendarAppUITests" \
 -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=13.6' \
